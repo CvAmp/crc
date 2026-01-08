@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light mode */
+  --primary-bg: #ffffff;
+  --secondary-bg: #f9fafb;
+  --primary-text: #111827;
+  --secondary-text: #4b5563;
+  --accent: #3b82f6;
+}
+
+.dark {
+  /* Dark mode */
+  --primary-bg: #111827;
+  --secondary-bg: #1f2937;
+  --primary-text: #f9fafb;
+  --secondary-text: #d1d5db;
+  --accent: #60a5fa;
+}

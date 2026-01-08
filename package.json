@@ -1,0 +1,61 @@
+{
+  "name": "vite-react-typescript-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": "^23.9.0"
+  },
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint src",
+    "preview": "vite preview",
+    "test": "vitest run --force",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage --force"
+  },
+  "dependencies": {
+    "date-fns": "^3.6.0",
+    "react": "^19.0.0",
+    "@babel/helpers": "^7.26.10",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^6.22.3",
+    "lru-cache": "^10.2.0",
+    "lucide-react": "^0.479.0",
+    "nanoid": "^3.3.10",
+    "zustand": "^4.5.2",
+    "cross-spawn": "^7.0.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "@eslint/plugin-kit": "^0.2.7",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/uuid": "^9.0.8",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-v8": "^1.4.0",
+    "autoprefixer": "^10.4.19",
+    "esbuild": "^0.21.5",
+    "eslint": "^9.9.1",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.1",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "globals": "^15.9.0",
+    "jsdom": "^24.0.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.3.0",
+    "vite": "^5.4.12",
+    "vitest": "^1.6.1"
+  },
+  "overrides": {
+    "glob": "^10.3.10",
+    "inflight": "npm:@isaacs/inflight@^1.0.1"
+  }
+}
