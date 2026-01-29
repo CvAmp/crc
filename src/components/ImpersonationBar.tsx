@@ -7,43 +7,23 @@ import type { UserRole } from '../types';
 
 export function ImpersonationBar() {
   const [selectedRole, setSelectedRole] = useState<UserRole | null>(null);
-  const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
   const store = useStore();
   const user = store.user;
-  const users = store.users;
   const impersonatedUser = store.impersonatedUser;
 
   if (user?.role !== 'ADMIN') return null;
 
   const handleRoleChange = (role: UserRole) => {
-    // Just store the role selection without activating impersonation
-    setSelectedRole(role);
-  };
-
-  const handleUserChange = (userId: string) => {
-    const selectedUser = users.find(u => u.id === userId);
-    if (selectedUser) {
-      setSelectedUserId(userId);
-    }
-  };
-
-  const handleActivateImpersonation = () => {
-    if (selectedUserId && selectedRole) {
-      store.setImpersonatedUser({ id: selectedUserId, role: selectedRole });
+    if (role) {
+      store.setImpersonatedUser(role);
+      setSelectedRole(role);
     }
   };
 
   const handleExitImpersonation = () => {
     store.setImpersonatedUser(null);
     setSelectedRole(null);
-    setSelectedUserId(null);
   };
-
-  // Filter users based on selected role
-  const filteredUsers = users.filter(u => 
-    u.id !== user?.id && // Exclude current user
-    (!selectedRole || u.role === selectedRole)
-  );
 
   return (
     <div className="flex items-center space-x-4">
@@ -57,47 +37,33 @@ export function ImpersonationBar() {
             <span className="text-sm font-medium text-amber-700">Exit Impersonation</span>
           </button>
         ) : (
-          <button
-            onClick={handleActivateImpersonation}
-            disabled={!selectedRole || !selectedUserId}
-            className={`px-2 py-1 rounded-md border flex items-center transition-colors ${
-              selectedRole && selectedUserId
-                ? 'bg-amber-50/50 border-amber-200 hover:bg-amber-50'
-                : 'border-gray-200 opacity-50 cursor-not-allowed'
-            }`}
-          >
-            <UserCog className="w-4 h-4 text-amber-600 mr-2" />
-            <span className="text-sm font-medium text-gray-600">Impersonation Mode</span>
-          </button>
+          <span className="text-sm font-medium text-gray-500 flex items-center">
+            <UserCog className="w-4 h-4 text-gray-400 mr-2" />
+            Impersonate Role:
+          </span>
         )}
       </div>
 
-      <Select
-        value={selectedRole || ''}
-        onChange={(e) => handleRoleChange(e.target.value as UserRole)}
-        options={[
-          { value: '', label: 'Role...' },
-          { value: 'CPM', label: 'CPM' },
-          { value: 'ENGINEER', label: 'Engineer' },
-          { value: 'CPM_MANAGER', label: 'CPM Manager' },
-          { value: 'ENGINEER_MANAGER', label: 'Engineer Manager' }
-        ]}
-        className="w-32"
-      />
+      {!impersonatedUser && (
+        <Select
+          value={selectedRole || ''}
+          onChange={(e) => handleRoleChange(e.target.value as UserRole)}
+          options={[
+            { value: '', label: 'Select role...' },
+            { value: 'CPM', label: 'CPM' },
+            { value: 'ENGINEER', label: 'Engineer' },
+            { value: 'CPM_MANAGER', label: 'CPM Manager' },
+            { value: 'ENGINEER_MANAGER', label: 'Engineer Manager' }
+          ]}
+          className="w-40"
+        />
+      )}
 
-      <Select
-        value={selectedUserId || ''}
-        onChange={(e) => handleUserChange(e.target.value)}
-        options={[
-          { value: '', label: 'User...' },
-          ...filteredUsers.map(u => ({
-            value: u.id,
-            label: u.email
-          }))
-        ]}
-        className="w-32"
-        disabled={!selectedRole} // Disable user selection until role is chosen
-      />
+      {impersonatedUser && (
+        <span className="text-sm font-medium text-amber-700 bg-amber-50 px-3 py-1 rounded-md border border-amber-200">
+          As: {impersonatedUser}
+        </span>
+      )}
     </div>
   );
 }

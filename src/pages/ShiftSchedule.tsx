@@ -53,7 +53,7 @@ export function ShiftSchedule() {
   const users = store.users;
 
   // Get the effective user (impersonated or actual)
-  const effectiveUser = impersonatedUser ? users.find(u => u.id === impersonatedUser.id) : user;
+  const effectiveUser = impersonatedUser ? users.find(u => u.role === impersonatedUser) : user;
   const isManager = effectiveUser?.role === 'ENGINEER_MANAGER' || effectiveUser?.role === 'CPM_MANAGER';
 
   // Update end date when start date changes if needed

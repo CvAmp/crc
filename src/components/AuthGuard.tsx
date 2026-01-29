@@ -37,7 +37,7 @@ export function AuthGuard({ children, requireAdmin = false }: AuthGuardProps) {
   }
 
   // Check if user is impersonating a non-admin role
-  const effectiveRole = impersonatedUser?.role || user.role;
+  const effectiveRole = impersonatedUser || user.role;
 
   if (requireAdmin && effectiveRole !== 'ADMIN') {
     return (

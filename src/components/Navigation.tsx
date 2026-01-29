@@ -29,7 +29,7 @@ export function Navigation() {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   // Use impersonated role if available, otherwise use actual user role
-  const effectiveRole = impersonatedUser?.role || user?.role;
+  const effectiveRole = impersonatedUser || user?.role;
 
   const NavItem = ({ to, icon: Icon, children }: { to: string; icon: React.ElementType; children: React.ReactNode }) => (
     <NavLink

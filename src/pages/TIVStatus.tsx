@@ -219,7 +219,7 @@ export function TIVStatus() {
   });
 
   // Get the effective user ID (impersonated user or actual user)
-  const effectiveUserId = impersonatedUser?.id !== 'role' ? impersonatedUser?.id : user?.id;
+  const effectiveUserId = impersonatedUser ? users.find(u => u.role === impersonatedUser)?.id : user?.id;
 
   const myTasks = requests.filter(request => 
     request.approving_engineer === effectiveUserId && request.status === 'PENDING'

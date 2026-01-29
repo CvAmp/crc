@@ -45,8 +45,8 @@ interface AppState {
   toggleTheme: () => void;
   
   // Impersonation state
-  impersonatedUser: { id: string; role: UserRole } | null;
-  setImpersonatedUser: (user: { id: string; role: UserRole } | null) => void;
+  impersonatedUser: UserRole | null;
+  setImpersonatedUser: (role: UserRole | null) => void;
   
   // Teams
   teams: Team[];
