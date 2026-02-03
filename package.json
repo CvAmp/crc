@@ -21,6 +21,7 @@
     "@remix-run/router": "^1.23.2",
     "cross-spawn": "^7.0.3",
     "date-fns": "^3.6.0",
+    "lodash": "^4.17.23",
     "lru-cache": "^10.2.0",
     "lucide-react": "^0.479.0",
     "nanoid": "^3.3.10",
