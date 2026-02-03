@@ -17,7 +17,6 @@ import { ModifyAvailability } from './pages/ModifyAvailability';
 import { ModifyWorkflows } from './pages/ModifyWorkflows';
 import { ModifyTemplates } from './pages/ModifyTemplates';
 import { ThemeProvider } from './components/ThemeProvider';
-import { ShiftSchedule } from './pages/ShiftSchedule';
 import { History } from './pages/History';
 import { useEffect } from 'react';
 import { WorkOrders } from './pages/WorkOrders';
@@ -65,7 +64,6 @@ function App() {
                         <Route path="/modify-availability" element={<ModifyAvailability />} />
                         <Route path="/modify-workflows" element={<ModifyWorkflows />} />
                         <Route path="/modify-templates" element={<ModifyTemplates />} />
-                        <Route path="/shift-schedule" element={<ShiftSchedule />} />
                         <Route path="/history" element={<History />} />
                         <Route path="/work-orders" element={<WorkOrders />} />
                         <Route path="/tiv-status" element={<TIVStatus />} />

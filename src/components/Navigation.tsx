@@ -11,7 +11,6 @@ import {
   ChevronRight,
   Home,
   Settings,
-  User,
   History,
   MessageSquare,
   Inbox,
@@ -92,7 +91,6 @@ export function Navigation() {
             You
           </div>
         )}
-        <NavItem to="/shift-schedule" icon={User}>Shift Schedule</NavItem>
         <NavItem to="/history" icon={History}>History</NavItem>
         <NavItem to="/reports" icon={BarChart3}>Reports</NavItem>
 
