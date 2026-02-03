@@ -16,7 +16,8 @@ import {
   MessageSquare,
   Inbox,
   FileCheck,
-  FileSpreadsheet
+  FileSpreadsheet,
+  BarChart3
 } from 'lucide-react';
 import { useStore } from '../store';
 import { ThemeToggle } from './ThemeToggle';
@@ -93,6 +94,7 @@ export function Navigation() {
         )}
         <NavItem to="/shift-schedule" icon={User}>Shift Schedule</NavItem>
         <NavItem to="/history" icon={History}>History</NavItem>
+        <NavItem to="/reports" icon={BarChart3}>Reports</NavItem>
 
         {/* Help & Support Section */}
         {!isCollapsed && (

@@ -24,6 +24,7 @@ import { WorkOrders } from './pages/WorkOrders';
 import { TIVStatus } from './pages/TIVStatus';
 import { MACDs } from './pages/MACDs';
 import { HelpAndFAQ } from './pages/HelpAndFAQ';
+import { Reports } from './pages/Reports';
 
 function App() {
   const setUser = useStore((state) => state.setUser);
@@ -70,6 +71,7 @@ function App() {
                         <Route path="/tiv-status" element={<TIVStatus />} />
                         <Route path="/macds" element={<MACDs />} />
                         <Route path="/help-and-faq" element={<HelpAndFAQ />} />
+                        <Route path="/reports" element={<Reports />} />
                       </Routes>
                     </div>
                   </main>
